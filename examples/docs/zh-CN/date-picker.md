@@ -38,19 +38,23 @@
           disabledDate(time) {
             return time.getTime() > Date.now();
           },
+          shortcutsSelection:true,
           shortcuts: [{
             text: '今天',
+            checked:true,
             onClick(picker) {
               picker.$emit('pick', new Date());
             }
           }, {
             text: '昨天',
+            checked:false,
             onClick(picker) {
               const date = new Date();
               date.setTime(date.getTime() - 3600 * 1000 * 24);
               picker.$emit('pick', date);
             }
           }, {
+            checked:false,
             text: '一周前',
             onClick(picker) {
               const date = new Date();
@@ -413,7 +417,8 @@
 ### Picker Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
-| shortcuts | 设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表 | Object[] | — | — |
+| shortcuts | 设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表 | Object[] | — | false |
+| ShortcutsSelection | 快捷选项是否为多选 | Boolean | — | — |
 | disabledDate | 设置禁用状态，参数为当前日期，要求返回 Boolean | Function | — | — |
 | cellClassName | 设置日期的 className | Function(Date) | — | — |
 | firstDayOfWeek | 周起始日 | Number | 1 到 7 | 7 |

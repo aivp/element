@@ -10,12 +10,15 @@
       <div class="el-picker-panel__body-wrapper">
         <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
         <div class="el-picker-panel__sidebar" v-if="shortcuts">
-          <button
-            type="button"
-            class="el-picker-panel__shortcut"
-            v-for="(shortcut, key) in shortcuts"
-            :key="key"
-            @click="handleShortcutClick(shortcut)">{{ shortcut.text }}</button>
+            <template v-for="(shortcut, key) in shortcuts">
+                <el-checkbox style="margin-left:10px;" :key="key" v-if="shortcutsSelection" v-model="shortcut.checked">{{ shortcut.text }}</el-checkbox>
+                <button    
+                    v-else                
+                    type="button"
+                    :key="key"
+                    class="el-picker-panel__shortcut"                    
+                    @click="handleShortcutClick(shortcut)">{{ shortcut.text }}</button>
+            </template>
         </div>
         <div class="el-picker-panel__body">
           <div class="el-date-picker__time-header" v-if="showTime">
@@ -513,6 +516,7 @@
         showTime: false,
         selectionMode: 'day',
         shortcuts: '',
+        shortcutsSelection: false,
         visible: false,
         currentView: 'date',
         disabledDate: '',

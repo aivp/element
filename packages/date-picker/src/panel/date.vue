@@ -11,7 +11,12 @@
         <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
         <div class="el-picker-panel__sidebar" v-if="shortcuts">
             <template v-for="(shortcut, key) in shortcuts">
-                <el-checkbox style="margin-left:10px;" :key="key" v-if="shortcutsSelection" v-model="shortcut.checked">{{ shortcut.text }}</el-checkbox>
+                <el-checkbox 
+                    v-if="shortcutsSelection" 
+                    style="margin-left:10px;" 
+                    :key="key"
+                    @change="(value)=>{handleShortcutClick(shortcut,value)}"
+                    v-model="shortcut.checked">{{ shortcut.text }}</el-checkbox>
                 <button    
                     v-else                
                     type="button"
@@ -302,9 +307,9 @@
         }
       },
 
-      handleShortcutClick(shortcut) {
+      handleShortcutClick(shortcut, value) {
         if (shortcut.onClick) {
-          shortcut.onClick(this);
+          shortcut.onClick(this, value);
         }
       },
 

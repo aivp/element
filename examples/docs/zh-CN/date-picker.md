@@ -42,7 +42,7 @@
           shortcuts: [{
             text: '今天',
             checked:true,
-            onClick(picker) {
+            onClick(picker,value) {
               picker.$emit('pick', new Date());
             }
           }, {

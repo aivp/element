@@ -417,8 +417,8 @@
 ### Picker Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
-| shortcuts | 设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表 | Object[] | — | false |
-| ShortcutsSelection | 快捷选项是否为多选 | Boolean | — | — |
+| shortcuts | 设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表 | Object[] | — | — |
+| ShortcutsSelection | 快捷选项是否为多选 | Boolean | — | false |
 | disabledDate | 设置禁用状态，参数为当前日期，要求返回 Boolean | Function | — | — |
 | cellClassName | 设置日期的 className | Function(Date) | — | — |
 | firstDayOfWeek | 周起始日 | Number | 1 到 7 | 7 |

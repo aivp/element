@@ -552,9 +552,13 @@
           return;
         }
         let result = [];
+        let tempOpt = null;
         if (Array.isArray(this.value)) {
           this.value.forEach(value => {
-            result.push(this.getOption(value));
+            tempOpt = this.getOption(value);
+            if (tempOpt.hitState !== false) {
+              result.push(tempOpt);
+            }
           });
         }
         this.selected = result;

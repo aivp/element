@@ -524,12 +524,16 @@
             break;
           }
         }
-        if (option) return option;
+        if (option) {
+          option.hit = true;
+          return option;
+        }
         const label = (!isObject && !isNull && !isUndefined)
           ? value : '';
         let newOption = {
           value: value,
-          currentLabel: label
+          currentLabel: label,
+          hit: false
         };
         if (this.multiple) {
           newOption.hitState = false;
@@ -556,7 +560,7 @@
         if (Array.isArray(this.value)) {
           this.value.forEach(value => {
             tempOpt = this.getOption(value);
-            if (tempOpt.hitState !== false) {
+            if (tempOpt.hit) {
               result.push(tempOpt);
             }
           });

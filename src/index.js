@@ -198,11 +198,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-<<<<<<< HEAD
-  version: '2.13.0-select-hit',
-=======
   version: '2.13.2',
->>>>>>> bf534d977eeecfe0de82397f2598f96f45b7885a
   locale: locale.use,
   i18n: locale.i18n,
   install,
